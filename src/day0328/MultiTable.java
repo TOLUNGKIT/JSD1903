@@ -7,7 +7,7 @@ public class MultiTable {
 		for(int i =1;i<=num;i++) {
 			System.out.print(i+"*"+num+"="+i*num+"\t");// "\t"-----char 空八格  
 		}
-		System.out.println();//换行
+		System.out.println();//换行  你在吗
 	}
 
 }
