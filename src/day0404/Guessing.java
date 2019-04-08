@@ -17,6 +17,7 @@ public class Guessing {
 		char[] a = generate();
 		System.out.println(a);
 		*/
+
 		Scanner scan = new Scanner(System.in);
 		char[] chs = generate();//获取随机字符
 		System.out.println(chs);//作弊
@@ -24,10 +25,16 @@ public class Guessing {
 		int count = 0;//猜错的次数
 		
 		do {
-			System.out.println("猜吧");
+			System.out.println("猜吧(输入exit即可退出程序)");
 			String str = scan.next().toUpperCase();//获取用户输入字符串.toUpperCase()转换成大写，toLowerCase()转换成小写
 			char[] input = str.toCharArray();//将字符串转化为字符数组
-			int[] result = check(chs,input);//
+			
+			if(str.equals("EXIT")) {//字符串判断内容相等用equals
+				System.out.println("欢迎下次再来！");
+				break;
+			}
+			
+			int[] result = check(chs,input);//载入对比方法
 			
 			if(result[0]==chs.length){//如果猜的位置全对了
 				int score = 100*chs.length-count*10;
@@ -41,7 +48,7 @@ public class Guessing {
 		
 
 	}
-	
+
 	//生成随机字符数组
 	public static char[] generate() {
 		char[] chs = new char[5];//随机字符数组
@@ -62,7 +69,7 @@ public class Guessing {
 		}
 		return chs;
 	}
-	
+
 	//对比：随机字符数组与用户输入的字符数组
 	public static int[] check(char[] chs,char[] input) {
 		int [] result = new int[2];//对比结果
